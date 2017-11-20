@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CenterController@catalog');
+
+Route::get('/centros', 'CenterController@catalog');
+
+Route::get('/centros/{slug}', 'CenterController@detail');
+
+Route::get('/usuarios', 'UserController@catalog');
+
+Route::get('/usuarios/{id}/', 'UserController@detail')->where('id', '[0-9]+');
+
+Route::get('/usuarios/nuevo', 'UserController@create');
