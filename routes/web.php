@@ -22,3 +22,7 @@ Route::get('/usuarios', 'UserController@catalog');
 Route::get('/usuarios/{id}/', 'UserController@detail')->where('id', '[0-9]+');
 
 Route::get('/usuarios/nuevo', 'UserController@create');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
