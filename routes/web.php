@@ -10,19 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', 'CenterController@catalog');
 
-Route::get('/centros', 'CenterController@catalog');
+// Centers
 
-Route::get('/centros/{slug}', 'CenterController@detail');
+Route::get('centros/crear', [
+    'uses' => 'CreateCenterController@create',
+    'as' => 'centers.create'
+]);
 
-Route::get('/usuarios', 'UserController@catalog');
+Route::post('centros/crear', [
+    'uses' => 'CreateCenterController@store',
+    'as' => 'centers.store'
+]);
 
-Route::get('/usuarios/{id}/', 'UserController@detail')->where('id', '[0-9]+');
 
-Route::get('/usuarios/nuevo', 'UserController@create');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

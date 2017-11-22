@@ -2,19 +2,16 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\FeatureTestCase;
 
-class ExampleTest extends TestCase
+class ExampleTest extends FeatureTestCase
 {
-    use DatabaseTransactions;
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testBasicTest()
+    function test_basic_example()
     {
         $name = 'Julio Hurtado';
         $email = 'admin@ilvermorny.es';
