@@ -14,6 +14,13 @@ class CreateCenterController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+           'name' => 'required',
+           'geolocation' => 'required',
+           'owner' => 'required',
+            'description' => 'required',
+        ]);
+
         $post = Center::create($request->all());
 
         return $post->name;

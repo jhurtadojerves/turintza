@@ -3,18 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Center;
 
 class CenterController extends Controller
 {
-    public function catalog()
-    {
-        $centers = [
-            'Parque central',
-            'Cascadas sagradas',
-            'Cabañas bonitas',
-            'Otro centro hermoso'
-        ];
-
-        return view('centers.list', compact('centers'));
+    public function show(Center $center) {
+        return view('centers.show', compact('center'));
     }
 }

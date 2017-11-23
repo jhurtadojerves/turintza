@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Turismo Tiwintza</title>
+    <title>@yield('title')</title>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta meta="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
 </head>
 
@@ -22,7 +22,7 @@
     <div class="row menu">
         <div class="col">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="/">Inicio</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -79,11 +79,11 @@
 
     <div class="row contenido">
 
-        <div class="col col-lg-2">
+        <div class="col col-lg-3">
             Menu lateral, arreglar luego
         </div>
 
-        <div class="col-md-auto">
+        <div class="col-lg-9">
             @yield('content')
         </div>
 

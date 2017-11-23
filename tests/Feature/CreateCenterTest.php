@@ -13,7 +13,7 @@ use Tests\FeatureTestCase;
 
 class CreateCenterTest extends FeatureTestCase
 {
-    public function test_a_user_create_a_post()
+    function test_a_user_create_a_post()
     {
         //Having
         $name = 'Este es el nombre del centro turístico';
@@ -41,5 +41,21 @@ class CreateCenterTest extends FeatureTestCase
         ]);
         //Test a user is redirected to the center details after creating it.
         $response->assertSee($name);
+    }
+
+    function test_creating_a_post_requires_authentication()
+    {
+        $this->get(route('centers.create'))
+            ->assertRedirect(route('login'));
+    }
+
+    function test_create_a_center_form_validation()
+    {
+
+        $this->actingAs($this->defaultUser())
+            ->get(route('centers.create'));
+        $response = $this->post(route('centers.store'))
+            ->assertRedirect(route('centers.create'))
+            ->assertSee('Redirecting to '.route('centers.create'));
     }
 }

@@ -1,13 +1,12 @@
 .bg-orange {
-    /*background-color: #ff861a!important;*/
-    /*background: -webkit-radial-gradient(centers, ellipse cover, #ffb76b 0%,#ffb45e 67%,#ff7f04 100%);*/
-    /*background: -webkit-radial-gradient(centers, ellipse cover, rgba(255,134,26,0.65) 0%,rgba(255,134,26,0.45) 31%,rgba(255,134,26,0.35) 46%,rgba(0,0,0,0.19) 71%,rgba(0,0,0,0) 100%);*/
-    /*background: -webkit-radial-gradient(centers, ellipse cover, rgba(255,134,26,0.65) 56%,rgba(148,78,15,0.65) 64%,rgba(0,0,0,0.45) 75%,rgba(255,134,26,0) 100%);*/
-    /*background: -webkit-radial-gradient(centers, ellipse cover, rgba(255,134,26,1) 0%,rgba(57,58,16,1) 100%);*/
-    /*background: radial-gradient(ellipse at centers, rgba(255,134,26,1) 0%,rgba(57,58,16,0.59) 100%);*/
     background: radial-gradient(ellipse at center, rgba(246,230,180,1) 0%,rgba(237,144,23,1) 100%);
 }
 
 .row{
     padding-top: 10px;
+}
+
+p.help-block{
+    color: red;
+    font-weight: bold;
 }
