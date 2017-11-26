@@ -10,3 +10,8 @@ Route::post('centros/crear', [
     'uses' => 'CreateCenterController@store',
     'as' => 'centers.store'
 ]);
+
+Route::post('centros/{center}/comentar', [
+   'uses' => 'CommentController@store',
+   'as' =>  'comments.store'
+]);

@@ -15,10 +15,13 @@ class AddCentersTable extends Migration
     {
         Schema::create('centers', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('name');
             $table->string('geolocation');
             $table->string('owner');
-            $table->string('description');
+            $table->string('slug');
+            $table->mediumText('description');
+
             $table->timestamps();
         });
     }

@@ -13,10 +13,13 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', [
+    'uses' => 'CenterController@index',
+    'as' => 'centers.index'
+]);
 
 // Centers
-Route::get('centros/{center}', [
+Route::get('centros/{center}-{slug}', [
     'uses' => 'CenterController@show',
     'as' => 'centers.show'
 ])->where('center', '\d+');

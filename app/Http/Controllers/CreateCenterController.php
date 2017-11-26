@@ -9,11 +9,15 @@ class CreateCenterController extends Controller
 {
     public function create()
     {
+        $this->authorize('create',  auth()->user());
+
         return view('centers.create');
     }
 
     public function store(Request $request)
     {
+        $this->authorize('create',  auth()->user());
+
         $this->validate($request, [
            'name' => 'required',
            'geolocation' => 'required',
@@ -21,8 +25,8 @@ class CreateCenterController extends Controller
             'description' => 'required',
         ]);
 
-        $post = Center::create($request->all());
+        $center = Center::create($request->all());
 
-        return $post->name;
+        return redirect($center->url);
     }
 }

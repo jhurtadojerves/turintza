@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use Tests\FeatureTestCase;
-
 class ExampleTest extends FeatureTestCase
 {
     /**
