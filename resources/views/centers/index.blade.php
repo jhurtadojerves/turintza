@@ -11,8 +11,8 @@
 @section('content')
     <h1>
         Listado de Centros Turísticos
-        @can('accept', @auth()->user())
-            <a type="button" class="btn btn-secondary" href="#"><i class="fa fa-plus" aria-hidden="true"></i> Crear
+        @can('create', App\Center::class)
+            <a type="button" class="btn btn-secondary" href="{{route('centers.create')}}"><i class="fa fa-plus" aria-hidden="true"></i> Crear
             </a>
         @endcan
     </h1>

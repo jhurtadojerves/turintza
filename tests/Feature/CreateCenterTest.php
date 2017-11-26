@@ -8,6 +8,8 @@
 
 namespace Tests\Feature;
 
+use App\User;
+
 class CreateCenterTest extends FeatureTestCase
 {
     function test_a_user_create_a_center()
@@ -22,9 +24,15 @@ class CreateCenterTest extends FeatureTestCase
         ];
 
         //When
-        $this->actingAs($this->defaultUser())
-        ->get(route('centers.create'))
-        ->assertSee('Crear Centro Turístico');
+        $user = factory(User::class)->create([
+            'type' => 'admin'
+        ]);
+
+        //dd($user);
+
+        $this->actingAs($user)
+            ->get(route('centers.create'))
+            ->assertSee('Crear Centro Turístico');
 
         $this->post(route('centers.store', [
             'name' =>  $name,
@@ -45,7 +53,9 @@ class CreateCenterTest extends FeatureTestCase
     function test_create_a_center_form_validation()
     {
 
-        $this->actingAs($this->defaultUser())
+        $this->actingAs(factory(User::class)->create([
+            'type' => 'admin'
+        ]))
             ->get(route('centers.create'));
         $response = $this->post(route('centers.store'))
             ->assertRedirect(route('centers.create'))
