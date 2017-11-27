@@ -12,7 +12,7 @@
     <h1>
         Listado de Centros Turísticos
         @can('create', App\Center::class)
-            <a type="button" class="btn btn-secondary" href="{{route('centers.create')}}"><i class="fa fa-plus" aria-hidden="true"></i> Crear
+            <a type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Agregar centro" href="{{route('centers.create')}}"><i class="fa fa-plus" aria-hidden="true"></i>
             </a>
         @endcan
     </h1>

@@ -14,3 +14,9 @@ p.help-block{
 .fade{
     opacity: 1 !important;
 }
+
+.gallery
+{
+    display: inline-block;
+    margin-top: 20px;
+}

@@ -25,6 +25,10 @@ class CenterController extends Controller
             ->orderBy('created_at', 'DESC')
             ->paginate();
 
-        return view('centers.show', compact(['center', 'comments']));
+        $images = $center->images()->get();
+
+        return view('centers.show', compact(['center', 'comments', 'images']));
     }
+
+
 }

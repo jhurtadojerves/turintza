@@ -16,4 +16,10 @@ class Image extends Model
     {
         return $this->belongsTo('App\Center');
     }
+
+    public function getUrlAttribute()
+    {
+        return '/images/centers/'.$this->name;
+    }
+
 }

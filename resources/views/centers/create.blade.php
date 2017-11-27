@@ -6,7 +6,7 @@
 
 @section('breadcrumb')
     <li class="breadcrumb-item" aria-current="page"><a href="/">Inicio</a></li>
-    <li class="breadcrumb-item" aria-current="page"><a href="/centros/">Centros</a></li>
+    <li class="breadcrumb-item" aria-current="page">Centros</li>
     <li class="breadcrumb-item active" aria-current="page">Crear</li>
 @endsection
 
