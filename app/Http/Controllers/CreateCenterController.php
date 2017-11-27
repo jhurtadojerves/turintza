@@ -27,6 +27,8 @@ class CreateCenterController extends Controller
 
         $center = Center::create($request->all());
 
+        \Alert::success("El centro turístico $center->name se registró correctamente");
+
         return redirect($center->url);
     }
 }

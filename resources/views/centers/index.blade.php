@@ -23,6 +23,6 @@
         @endforeach
     </ul>
 
-    {{ $centers->render() }}
+    {{ $centers->links() }}
 
 @endsection

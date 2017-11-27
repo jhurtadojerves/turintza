@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
 use App\Center;
 
@@ -20,6 +21,10 @@ class CenterController extends Controller
             return redirect($center->url, 301);
         }
 
-        return view('centers.show', compact('center'));
+        $comments = Comment::where('center_id', '=', $center->id)
+            ->orderBy('created_at', 'DESC')
+            ->paginate();
+
+        return view('centers.show', compact(['center', 'comments']));
     }
 }
