@@ -11,6 +11,7 @@
 @endsection
 
 @section('content')
+
     <h1>{{$center->name}}</h1>
 
     <section id="center" class="align-items-center">
@@ -46,6 +47,8 @@
 
     </section>
 
+    <script src="https://cdn.ckeditor.com/4.7.3/basic/ckeditor.js"></script>
+
     <section id="comments" class="align-items-center">
         <!--<aside id="toggle"><button type="button" class="btn btn-info">Escribir un comentario</button></aside> !-->
 
@@ -57,7 +60,7 @@
                         <strong>Autor: <a href="#">{{$comment->user->name}}</a></strong>
                     </div>
                     <div class="card-body">
-                        <p class="card-text text-justify">{{$comment->content}}</p>
+                        {!! $comment->safe_html_content !!}
                     </div>
                     <div class="card-footer text-muted">
                         {{$comment->created_at}}
@@ -70,7 +73,7 @@
             <h2>Realizar un comentario</h2>
             {!! Form::open(['route' => ['comments.store', $center], 'method' => 'POST']) !!}
 
-            {!! Field::textarea('content', ['style' => 'height: 100px;']) !!}
+            {!! Field::textarea('content', ['style' => 'height: 200px;', 'id' => 'summernote']) !!}
             {!! Field::number('ranking', ['max' => '5', 'min'=> '1', ]) !!}
 
             <div class="form-group">
@@ -82,8 +85,9 @@
         </section>
 
     </section>
-
-
+    <script>
+        CKEDITOR.replace( 'content' );
+    </script>
     <script>
         document.getElementById('links').onclick = function (event) {
             event = event || window.event;

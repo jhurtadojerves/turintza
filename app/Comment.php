@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Comment extends Model
 {
@@ -21,4 +22,10 @@ class Comment extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function getSafeHtmlContentAttribute()
+    {
+        return Markdown::convertToHtml(e($this->content));
+    }
+
 }
