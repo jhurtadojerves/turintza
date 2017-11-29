@@ -5,7 +5,8 @@
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item active" aria-current="page">Inicio</li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{{ route('home.index') }}">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Centros</li>
 @endsection
 
 @section('content')
@@ -23,6 +24,8 @@
         @endforeach
     </ul>
 
-    {{ $centers->links() }}
+    <nav aria-label="Paginación de los centros turísticos">
+        {{ $centers->links() }}
+    </nav>
 
 @endsection

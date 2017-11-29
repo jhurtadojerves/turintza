@@ -6,7 +6,7 @@
 
 @section('breadcrumb')
     <li class="breadcrumb-item" aria-current="page"><a href="/">Inicio</a></li>
-    <li class="breadcrumb-item" aria-current="page">Centros</li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{{ route('centers.index') }}">Centros</a></li>
     <li class="breadcrumb-item active" aria-current="page">{{$center->name}}</li>
 @endsection
 
@@ -67,8 +67,11 @@
                     </div>
                 </div>
             @endforeach
-            {{$comments->links()}}
+
         </section>
+        <nav style="margin-top:20px; "aria-label="Paginación de los comentarios del centro turístico {{$center->name}}" class="card bg-light border-light">
+            {{$comments->links()}}
+        </nav>
         <section id="form" style="padding-top: 60px;">
             <h2>Realizar un comentario</h2>
             {!! Form::open(['route' => ['comments.store', $center], 'method' => 'POST']) !!}

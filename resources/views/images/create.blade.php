@@ -6,7 +6,7 @@
 
 @section('breadcrumb')
     <li class="breadcrumb-item" aria-current="page"><a href="/">Inicio</a></li>
-    <li class="breadcrumb-item" aria-current="page">Centros</li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{{ route('centers.index') }}">Centros</a></li>
     <li class="breadcrumb-item" aria-current="page"><a href="{{$center->url}}">{{$center->name}}</a></li>
     <li class="breadcrumb-item active" aria-current="page">Agregar imagen</li>
 @endsection
@@ -17,11 +17,10 @@
     {!! Form::open(['method' => 'POST', 'route' => ['images.store', $center, $center->slug], 'files' => true]) !!}
         <h1>Seleccionar una imagen</h1>
         <br><br>
-        <div class="form-group">
-            <div class="col-md-12 col-md-offset-4">
-                {!! Form::file('image', ['class' => 'form-control', 'type' => 'image', 'required' => 'required',]) !!}
-            </div>
-        </div>
+        {!! Form::file('image', ['class' => 'form-control',]) !!}
+        @foreach ($errors->all() as $message)
+           <p class="help-block">{{ $message }}</p>
+        @endforeach
     <br><br>
         <div class="form-group">
             <div class="col-md-8 col-md-offset-4">

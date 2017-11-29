@@ -15,10 +15,16 @@ Auth::routes();
 
 Route::get('/', [
     'uses' => 'CenterController@index',
-    'as' => 'centers.index'
+    'as' => 'home.index'
 ]);
 
 // Centers
+
+Route::get('/centros', [
+    'uses' => 'CenterController@index',
+    'as' => 'centers.index'
+]);
+
 Route::get('centros/{center}-{slug}', [
     'uses' => 'CenterController@show',
     'as' => 'centers.show'

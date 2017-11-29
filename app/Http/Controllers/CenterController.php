@@ -23,7 +23,7 @@ class CenterController extends Controller
 
         $comments = Comment::where('center_id', '=', $center->id)
             ->orderBy('created_at', 'DESC')
-            ->paginate();
+            ->paginate(5);
 
         $images = $center->images()->get();
 

@@ -19,12 +19,12 @@
 
 </head>
 
-<body>
+<body class="bg-secondary">
 
 <div class="container">
 
 
-    <div class="row menu">
+    <section class="row menu">
         <div class="col">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
@@ -64,9 +64,9 @@
                 </div>
             </nav>
         </div>
-    </div>
+    </section>
 
-    <div class="row titulo" >
+    <section class="row titulo" >
         <div class="col">
             <nav class="" aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb bg-orange text-white">
@@ -74,29 +74,35 @@
                 </ol>
             </nav>
         </div>
-    </div>
+    </section>
 
-    <div class="row nav">
+    <section class="row nav">
         <nav class="col" aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
                 @yield('breadcrumb')
             </ol>
         </nav>
-    </div>
+    </section>
 
-    <div class="row contenido">
+    <section class="card-deck row contenido">
 
-        <div class="col col-lg-3">
-            Menu lateral, arreglar luego
+        <div class="card col-lg-9 bg-light">
+            <div class="card-body">
+                {!! Alert::render() !!}
+                @yield('content')
+            </div>
         </div>
 
-        <div class="col-lg-9">
-            {!! Alert::render() !!}
-            @yield('content')
+        <div class="card col col-lg-3 bg-light">
+            <div class="card-body">Menu lateral, arreglar luego</div>
         </div>
 
-    </div>
+    </section>
 
+    <section class="row footer">
+
+    </section>
+    <br><br>
 </div>
 
 <!-- Optional JavaScript -->
