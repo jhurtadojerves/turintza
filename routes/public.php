@@ -13,19 +13,38 @@
 
 Auth::routes();
 
+//Home and others
+
 Route::get('/', [
-    'uses' => 'CenterController@index',
+    'uses' => 'HomeController@index',
     'as' => 'home.index'
 ]);
 
+Route::get('/geografia', [
+    'uses' => 'HomeController@geography',
+    'as' => 'home.geography'
+]);
+
+Route::get('/cultura', [
+    'uses' => 'HomeController@culture',
+    'as' => 'home.culture'
+]);
+
+Route::get('/como-llegar', [
+    'uses' => 'HomeController@how',
+    'as' => 'home.how'
+]);
+
+
+
 // Centers
 
-Route::get('/centros', [
+Route::get('/centros-turisticos', [
     'uses' => 'CenterController@index',
     'as' => 'centers.index'
 ]);
 
-Route::get('centros/{center}-{slug}', [
+Route::get('centros-turisticos/{center}-{slug}', [
     'uses' => 'CenterController@show',
     'as' => 'centers.show'
 ])->where('center', '\d+');

@@ -1,5 +1,5 @@
 .bg-orange {
-    background: radial-gradient(ellipse at center, rgba(246,230,180,1) 0%,rgba(237,144,23,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(248, 177, 118,1) 0%,rgba(221, 131, 14,1) 100%);
 }
 
 .row{
@@ -19,4 +19,12 @@ p.help-block{
 {
     display: inline-block;
     margin-top: 20px;
+}
+
+.remove-hover:hover{
+    text-decoration: none !important;
+}
+
+.remove-hover img:hover{
+    background-color: #dcdef1;
 }

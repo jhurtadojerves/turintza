@@ -28,6 +28,17 @@
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </a>
             @endcan</h2>
+            <div id="links">
+                @foreach($images as $image)
+                    <a href="{{ $image->url }}" class="remove-hover">
+                        <img src="{{Croppa::url("images/centers/$image->name", 50, 50)}}" alt="" class="img-thumbnail rounded-circle img-fluid">
+                    </a>
+                @endforeach
+            </div>
+
+
+
+        <!--
         <div class="col">
             <div class="card-group card" id="links">
             <div class="row">
@@ -43,7 +54,7 @@
             </div>
         </div>
         </div>
-
+        -->
 
     </section>
 

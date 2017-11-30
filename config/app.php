@@ -178,6 +178,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Bkwld\Croppa\ServiceProvider::class,
 
     ],
 
@@ -230,6 +231,7 @@ return [
 
         'Access' => Styde\Html\Facades\Access::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'Croppa' => Bkwld\Croppa\Facade::class,
 
     ],
 

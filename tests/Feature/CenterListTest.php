@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use App\Center;
 
-class PostListTest extends FeatureTestCase
+class CenterListTest extends FeatureTestCase
 {
 
     function test_a_user_can_see_the_center_and_got_to_the_details()
@@ -13,7 +13,7 @@ class PostListTest extends FeatureTestCase
             'name' => 'Restaurante buenaventura'
         ]);
 
-        $this->get('/')
+        $this->get('/centros-turisticos')
             ->assertSeeText($center->name);
 
         $this->get($center->url)
@@ -33,13 +33,14 @@ class PostListTest extends FeatureTestCase
             'name' => 'Zoologico el paraiso'
         ]);
 
-        $this->get('/')
-            ->assertSee($first->name)
-            ->assertDontSee($last->name)
-            ->assertSee('2');
+        $this->get('/centros-turisticos')
+            ->assertStatus(200)
+            ->assertSeeText($first->name)
+            ->assertDontSeeText($last->name)
+            ->assertSeeText('2');
 
-        $this->get('/?page=2')
-            ->assertSee($last->name)
+        $this->get('/centros-turisticos/?page=2')
+            ->assertSeeText($last->name)
             ->assertDontSeeText($first->name);
     }
 }

@@ -28,16 +28,32 @@
         <div class="col">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-                <a class="navbar-brand" href="/">Inicio</a>
+                <a class="navbar-brand" href="http://www.tiwintza.gob.ec">Municipio de Tiwintza</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Información
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/">Inicio</a>
+                                <a class="dropdown-item" href="{{ route('home.geography') }}">Geografía</a>
+                                <a class="dropdown-item" href="{{ route('home.culture') }}">Cultura</a>
+                                <a class="dropdown-item" href="{{ route('home.how') }}">¿Cómo llegar?</a>
+                            </div>
+                        </li>
+
                         @guest
-                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Registrarse</a></li>
                         @else
                             <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +61,6 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Detalles</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}">
                                     Cerrar Sesión
@@ -53,9 +68,7 @@
                             </div>
                         </li>
                         @endguest
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
+
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -94,7 +107,13 @@
         </div>
 
         <div class="card col col-lg-3 bg-light">
-            <div class="card-body">Menu lateral, arreglar luego</div>
+            <div class="card-body"><ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Morbi leo risus</li>
+                    <li class="list-group-item">Porta ac consectetur ac</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul></div>
         </div>
 
     </section>
