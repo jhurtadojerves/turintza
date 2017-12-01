@@ -48,7 +48,7 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Detalles</a>
+                                <a class="dropdown-item" href="{{ Auth::user()->url }}">Detalles</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}">
                                     Cerrar Sesión
@@ -70,8 +70,6 @@
         </div>
     </section>
 
-
-
     <section class="row nav">
         <nav class="col" aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
@@ -82,24 +80,24 @@
 
     <section class="card-deck row contenido">
 
-        <div class="card col-lg-9 bg-light">
+        <div class="card no-gutters col-lg-3 col-md-12 bg-light">
+            <div class="list-group" style="margin-top: 10px; margin-bottom: 10px;">
+                <a href="{{ route('home.index') }}" class="list-group-item list-group-item-info bg-blue-grey">Ecología y Turismo</a>
+                <a href="{{ route('home.geography') }}" class="list-group-item list-group-item-info bg-blue-grey">Geografía</a>
+                <a href="{{ route('home.culture') }}" class="list-group-item list-group-item-info bg-blue-grey">Cultura</a>
+                <a href="{{ route('home.how') }}" class="list-group-item list-group-item-info bg-blue-grey">¿Cómo llegar?</a>
+                <a href="{{ route('centers.index') }}" class="list-group-item list-group-item-info bg-blue-grey">Centros Turísticos</a>
+            </div>
+        </div>
+        <div class="w-100 d-lg-none" style="margin-bottom: 20px;"></div>
+        <div class="card no-gutters col-lg-9 bg-light">
             <div class="card-body">
                 {!! Alert::render() !!}
                 @yield('content')
             </div>
         </div>
 
-        <div class="card col col-lg-3 bg-light">
-            <div class="card-body">
-                <div class="list-group">
-                    <a href="{{ route('home.index') }}" class="list-group-item list-group-item-info bg-blue-grey">Ecología y Turismo</a>
-                    <a href="{{ route('home.geography') }}" class="list-group-item list-group-item-info bg-blue-grey">Geografía</a>
-                    <a href="{{ route('home.culture') }}" class="list-group-item list-group-item-info bg-blue-grey">Cultura</a>
-                    <a href="{{ route('home.how') }}" class="list-group-item list-group-item-info bg-blue-grey">¿Cómo llegar?</a>
-                    <a href="{{ route('centers.index') }}" class="list-group-item list-group-item-info bg-blue-grey">Centros Turísticos</a>
-                </div>
-            </div>
-        </div>
+
 
     </section>
 

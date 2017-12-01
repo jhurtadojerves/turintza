@@ -29,7 +29,6 @@ class CreateCenterController extends Controller
         $converter = new HtmlConverter(array('strip_tags' => true));
         $markdown = $converter->convert($request->get('description'));
 
-
         $center = Center::create([
             'name'          =>  $request->get('name'),
             'geolocation'   =>  $request->get('geolocation'),
@@ -42,4 +41,6 @@ class CreateCenterController extends Controller
 
         return redirect($center->url);
     }
+
+
 }

@@ -37,7 +37,7 @@ Route::get('/como-llegar', [
 
 
 
-// Centers
+// Centers CRUD Public
 
 Route::get('/centros-turisticos', [
     'uses' => 'CenterController@index',
@@ -49,5 +49,8 @@ Route::get('centros-turisticos/{center}-{slug}', [
     'as' => 'centers.show'
 ])->where('center', '\d+');
 
-
+Route::get('usuarios/{user}-{slug}', [
+    'uses' => 'UserController@show',
+    'as' => 'users.show'
+]);
 

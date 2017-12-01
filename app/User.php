@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -32,5 +33,17 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
     }
 
+    //End relationships
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('users.show', [$this->id, $this->slug]);
+    }
 
 }

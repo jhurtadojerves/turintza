@@ -12,7 +12,13 @@
 
 @section('content')
 
-    <h1 class="text-center">{{$center->name}}</h1>
+    <h1 class="text-center">
+        {{$center->name}}
+        @can('create', App\Center::class)
+            <a type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Agregar centro" href="{{route('centers.edit', [$center, $center->slug])}}"><i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+        @endcan
+    </h1>
     <br>
     <section id="center" class="align-items-center">
         <article class="text-justify">
@@ -20,6 +26,13 @@
             <p><b>Propietario: </b> {{$center->owner}}</p>
             {!! $mapHelper->render($map) !!}
             {!! $apiHelper->render([$map]) !!}
+
+            <script>
+                $(document).ready(function(){
+                    $("#map").css("max-width", "100%");
+                    $("#map").css("width", "100%");
+                });
+            </script>
 
         </article>
     </section>
@@ -48,9 +61,10 @@
         <section id="detail" style="padding-top: 60px;">
             <h2>Comentarios</h2>
             @foreach($comments as $comment)
+                <a name="comment-{{ $comment->id }}"></a>
                 <div class="card" style="margin-top: 10px;">
                     <div class="card-header">
-                        <strong>Autor: <a href="#">{{$comment->user->name}}</a></strong>
+                        <strong>Autor: <a href="{{ $comment->user->url }}">{{$comment->user->name}}</a></strong>
                     </div>
                     <div class="card-body">
                         {!! $comment->safe_html_content !!}
