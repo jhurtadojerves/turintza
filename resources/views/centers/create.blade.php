@@ -11,6 +11,7 @@
 @endsection
 
 @section('content')
+    <script src="https://cdn.ckeditor.com/4.7.3/basic/ckeditor.js"></script>
     <h1>Crear Centro Turístico</h1>
 
     {!! Form::open(['method' => 'POST', 'route' => 'centers.store']) !!}
@@ -21,5 +22,9 @@
         {!! Form::submit('Crear centro', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
     <br><br>
+
+    <script>
+        CKEDITOR.replace( 'description' );
+    </script>
 
 @endsection

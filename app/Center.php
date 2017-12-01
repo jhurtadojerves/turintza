@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Center extends Model
 {
@@ -46,6 +47,11 @@ class Center extends Model
     public function getUrlAttribute()
     {
         return route('centers.show', [$this->id, $this->slug]);
+    }
+
+    public function getSafeHtmlDescriptionAttribute()
+    {
+        return Markdown::convertToHtml(e($this->description));
     }
 
 }

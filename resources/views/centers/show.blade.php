@@ -12,13 +12,15 @@
 
 @section('content')
 
-    <h1>{{$center->name}}</h1>
-
+    <h1 class="text-center">{{$center->name}}</h1>
+    <br>
     <section id="center" class="align-items-center">
-        <article>
-            <p>{{$center->description}}</p>
-
+        <article class="text-justify">
+            {!! $center->safe_html_description !!}
             <p><b>Propietario: </b> {{$center->owner}}</p>
+            {!! $mapHelper->render($map) !!}
+            {!! $apiHelper->render([$map]) !!}
+
         </article>
     </section>
 
@@ -35,26 +37,6 @@
                     </a>
                 @endforeach
             </div>
-
-
-
-        <!--
-        <div class="col">
-            <div class="card-group card" id="links">
-            <div class="row">
-                @foreach($images as $image)
-                    <div class="col-md-2">
-                        <div class="card" style="width: 100%; margin:5px;">
-                    <a href="{{$image->url}}" class="card">
-                        <img class="card-img" src="{{ $image->url }}" style=" border-style:ridge;border-width:2px;">
-                    </a>
-                    </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-        </div>
-        -->
 
     </section>
 
