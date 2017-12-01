@@ -37,7 +37,7 @@ Route::get('/como-llegar', [
 
 
 
-// Centers
+// Centers CRUD Public
 
 Route::get('/centros-turisticos', [
     'uses' => 'CenterController@index',

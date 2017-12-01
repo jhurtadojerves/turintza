@@ -12,7 +12,13 @@
 
 @section('content')
 
-    <h1 class="text-center">{{$center->name}}</h1>
+    <h1 class="text-center">
+        {{$center->name}}
+        @can('create', App\Center::class)
+            <a type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Agregar centro" href="{{route('centers.edit', [$center, $center->slug])}}"><i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+        @endcan
+    </h1>
     <br>
     <section id="center" class="align-items-center">
         <article class="text-justify">

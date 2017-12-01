@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Center;
 use Illuminate\Http\Request;
+use League\HTMLToMarkdown\HtmlConverter;
 
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Base\Coordinate;
@@ -33,6 +34,7 @@ class CenterController extends Controller
 
     public function show(Center $center, $slug) {
         if ($center->slug != $slug) {
+            \Alert::info("El centro turístico $center->name se movió permanentemente a esta dirección");
             return redirect($center->url, 301);
         }
         $comments = Comment::where('center_id', '=', $center->id)
@@ -73,5 +75,38 @@ class CenterController extends Controller
         return view('centers.show', compact(['center', 'comments', 'images', 'map', 'mapHelper', 'apiHelper']));
     }
 
+    public function edit(Center $center, $slug){
+        $this->authorize('create', Center::class);
+
+        if ($center->slug != $slug) {
+            \Alert::info("El centro turístico $center->name se movió permanentemente a esta dirección");
+            return redirect(route('centers.edit', [$center, $center->slug]), 301);
+        }
+
+        return view('centers.edit', compact(['center',]));
+    }
+
+    public function update(Request $request, Center $center, $slug)
+    {
+
+        $this->authorize('create', Center::class);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'geolocation' => 'required',
+            'owner' => 'required',
+            'description' => 'required',
+        ]);
+
+        $converter = new HtmlConverter(array('strip_tags' => true));
+        $description = $converter->convert($request->get('description'));
+        $center->fill($request->all())
+            ->update([
+            'description' => $description
+        ]);
+        \Alert::success("El centro turístico $center->name se actualizó correctamente");
+        return redirect($center->url);
+
+    }
 
 }
