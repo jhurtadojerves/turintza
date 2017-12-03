@@ -11,14 +11,28 @@
 @endsection
 
 @section('content')
-
-    <h1 class="text-center">
+    @if(strlen($errors) > 2)
+        <script>
+            $(function() {
+                $('html,body').animate({
+                    scrollTop: $("#form").offset().top
+                }, 0);
+            })
+        </script>
+    @endif
+    <h1>
         {{$center->name}}
         @can('create', App\Center::class)
             <a type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Agregar centro" href="{{route('centers.edit', [$center, $center->slug])}}"><i class="fa fa-pencil" aria-hidden="true"></i>
             </a>
         @endcan
     </h1>
+    <span class="star star-{{ $center->global_valoration }}">
+        @for ($i=1; $i<=5; $i++)
+            <i class="fa fa-star" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="{{ $center->global_valoration }} estrellas"></i>
+        @endfor
+    </span>
+    <h2></h2>
     <br>
     <section id="center" class="align-items-center">
         <article class="text-justify">
@@ -56,15 +70,18 @@
     <script src="https://cdn.ckeditor.com/4.7.3/basic/ckeditor.js"></script>
 
     <section id="comments" class="align-items-center">
-        <!--<aside id="toggle"><button type="button" class="btn btn-info">Escribir un comentario</button></aside> !-->
-
         <section id="detail" style="padding-top: 60px;">
             <h2>Comentarios</h2>
             @foreach($comments as $comment)
                 <a name="comment-{{ $comment->id }}"></a>
                 <div class="card" style="margin-top: 10px;">
                     <div class="card-header">
-                        <strong>Autor: <a href="{{ $comment->user->url }}">{{$comment->user->name}}</a></strong>
+                        <strong>Autor:</strong> <a href="{{ $comment->user->url }}">{{$comment->user->name}}</a>
+                        <span class="star star-{{ $comment->ranking }}">
+                        @for ($i=1; $i<=5; $i++)
+                        <i class="fa fa-star" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="{{ $comment->ranking }} estrellas"></i>
+                        @endfor
+                        </span>
                     </div>
                     <div class="card-body">
                         {!! $comment->safe_html_content !!}
@@ -81,10 +98,16 @@
         </nav>
         <section id="form" style="padding-top: 60px;">
             <h2>Realizar un comentario</h2>
+
+            @foreach ($errors->all() as $message)
+                <p class="help-block">{{ $message }}</p>
+            @endforeach
             {!! Form::open(['route' => ['comments.store', $center], 'method' => 'POST']) !!}
+            <label for="ranking">Valorar el centro turístico</label>
+            <input class="rating" data-max="5" data-min="1" id="some_id" name="ranking" type="number" data-icon-lib="fa" data-active-icon="fa-star" data-inactive-icon="fa-star-o" data-clearable-icon="fa-trash-o"/>
 
             {!! Field::textarea('content', ['style' => 'height: 200px;', 'id' => 'summernote']) !!}
-            {!! Field::number('ranking', ['max' => '5', 'min'=> '1', ]) !!}
+
 
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">

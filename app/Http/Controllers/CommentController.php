@@ -18,6 +18,9 @@ class CommentController extends Controller
         $this->validate($request, [
             'content' => 'required',
             'ranking' => 'required',
+        ], [
+            'ranking.required' => 'Debes seleccionar al menos una estrella',
+            'content.required' => 'No puedes enviar tu comentario si no escribes algo en el editor'
         ]);
 
         $comment = new Comment([

@@ -54,4 +54,9 @@ class Center extends Model
         return Markdown::convertToHtml(e($this->description));
     }
 
+    public function getGlobalValorationAttribute()
+    {
+        return round($this->comments()->get(['ranking'])->avg('ranking'));
+    }
+
 }
