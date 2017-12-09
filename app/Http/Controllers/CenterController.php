@@ -9,7 +9,6 @@ use League\HTMLToMarkdown\HtmlConverter;
 
 use Ivory\GoogleMap\Map;
 use Ivory\GoogleMap\Base\Coordinate;
-use Ivory\GoogleMap\Base\Size;
 
 use Ivory\GoogleMap\Control\ControlPosition;
 use Ivory\GoogleMap\Control\ZoomControl;
