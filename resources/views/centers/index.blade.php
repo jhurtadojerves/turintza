@@ -28,4 +28,9 @@
         {{ $centers->links() }}
     </nav>
 
+    <script>
+        const element = document.getElementById("centers-index")
+        element.classList.add("active")
+    </script>
+
 @endsection

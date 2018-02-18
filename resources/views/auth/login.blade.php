@@ -18,6 +18,9 @@
         <a class="btn btn-link" href="{{ route('password.request') }}">
             ¿Olvidaste tu contraseña?
         </a>
+        <a class="btn btn-primary" href="{{ route('social.auth', 'facebook') }}">
+            Facebook
+        </a>
     {!! Form::close() !!}
 
 

@@ -11,11 +11,36 @@
 |
 */
 
-Auth::routes();
+//Auth::routes();
+
+//  Users CRUD
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout.fix'); //Just added to fix issue
+
+Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
+Route::get('auth/{provider}/callback/', 'Auth\SocialAuthController@handleProviderCallback');
+
+
+
+
+//News CRUD Public
+Route::get('/noticias', [
+    'uses' => 'NewController@index',
+    'as' => 'news.index'
+]);
+
+Route::get('noticias/{neww}-{slug}', [
+    'uses' => 'NewController@show',
+    'as' => 'news.show'
+])->where('neww', '\d+');
 
 //Home and others
 
 Route::get('/', [
+    'uses' => 'HomeController@redirect',
+    'as' => 'home.redirect'
+]);
+
+Route::get('/turismo', [
     'uses' => 'HomeController@index',
     'as' => 'home.index'
 ]);

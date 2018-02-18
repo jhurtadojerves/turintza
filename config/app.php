@@ -170,6 +170,7 @@ return [
          */
         Styde\Html\HtmlServiceProvider::class,
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -231,6 +232,7 @@ return [
         'Access' => Styde\Html\Facades\Access::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Croppa' => Bkwld\Croppa\Facade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

@@ -70,4 +70,8 @@ class HomeController extends Controller
         return view('home.how', compact(['map', 'mapHelper', 'apiHelper']));
     }
 
+    public function redirect() {
+        return redirect(route('news.index'), 301);
+    }
+
 }

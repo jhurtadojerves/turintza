@@ -12,11 +12,13 @@
         "fideloper/proxy": "~3.3",
         "graham-campbell/markdown": "^8.0",
         "laravel/framework": "5.5.*",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "league/html-to-markdown": "^4.6",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/message": "^1.6",
-        "styde/html": "~1.4"
+        "styde/html": "~1.4",
+        "yajra/laravel-disqus": "^1.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

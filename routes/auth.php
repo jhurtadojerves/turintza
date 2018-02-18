@@ -1,7 +1,4 @@
 <?php
-//  Users CRUD
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout'); //Just added to fix issue
-
 // Centers CRUD Auth
 Route::get('centros-turisticos/crear', [
     'uses' => 'CreateCenterController@create',
@@ -39,4 +36,16 @@ Route::post('centros-turisticos/{center}-{slug}/imagenes', [
 Route::get('centros-turisticos/{center}-{slug}/imagenes', [
     'uses' => 'ImageController@create',
     'as' => 'images.create'
+]);
+
+//News CRUD Auth
+
+Route::get('noticias/agregar', [
+    'uses' => 'NewController@create',
+    'as' => 'news.create'
+]);
+
+Route::post('noticias/crear', [
+    'uses' => 'NewController@store',
+    'as' => 'news.store'
 ]);

@@ -24,7 +24,9 @@
     <br><br>
 
     <script>
-        CKEDITOR.replace( 'description' );
+        CKEDITOR.replace( 'description' )
+        const element = document.getElementById("centers-index")
+        element.classList.add("active")
     </script>
 
 @endsection

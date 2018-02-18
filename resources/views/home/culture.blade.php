@@ -5,7 +5,7 @@
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item" aria-current="page"><a href="{{ route('home.index') }}">Inicio</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="/">Inicio</a></li>
     <li class="breadcrumb-item active" aria-current="page">Cultura</li>
 @endsection
 
@@ -21,5 +21,9 @@
         <p>La organización estatal y privada tiene una visión únicamente de explotación económica y de desarrollo. Los Shuar de Santiago y San José de Morona deben plantear, a partir de su cosmovisión,  un nuevo paradigma de desarrollo sustentable ecológicamente y sostenible económicamente. .</p>
 
     </aticle>
+    <script>
+        const element = document.getElementById("home-culture")
+        element.classList.add("active")
+    </script>
 
 @endsection

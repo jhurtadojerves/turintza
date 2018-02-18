@@ -23,7 +23,7 @@
     <h1>
         {{$center->name}}
         @can('create', App\Center::class)
-            <a type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Agregar centro" href="{{route('centers.edit', [$center, $center->slug])}}"><i class="fa fa-pencil" aria-hidden="true"></i>
+            <a type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Editar centro" href="{{route('centers.edit', [$center, $center->slug])}}"><i class="fa fa-pencil" aria-hidden="true"></i>
             </a>
         @endcan
     </h1>
@@ -46,7 +46,10 @@
                     $("#map").css("max-width", "100%");
                     $("#map").css("width", "100%");
                 });
+                const element = document.getElementById("centers-index")
+                element.classList.add("active")
             </script>
+
 
         </article>
     </section>

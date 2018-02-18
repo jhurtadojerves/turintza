@@ -1,16 +1,17 @@
 @extends('layaout')
 
 @section('title')
-    Twintza Ecológica y Turística.
+    Tiwintza Ecológica y Turística.
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item active" aria-current="page">Inicio</li>
+    <li class="breadcrumb-item" aria-current="page"><a href="/">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Ecología y Turismo</li>
 @endsection
 
 @section('content')
     <h1 class="text-center">
-        Twintza Ecológica y Turística.
+        Tiwintza Ecológica y Turística.
     </h1> <br>
 
     <article class="text-justify">
@@ -20,6 +21,11 @@
 
         <p>Tiwintza, “Ecológico y Turístico”, se construye en un lugar ideal para disfrutar del turismo vivencial, el aviturismo, el ecoturismo, el turismo comunitario y de aventura; posibilita la práctica de diversas actividades  como el senderismo, la navegación, la observación de aves, la espeleología, la encierra una autentica y nueva experiencia para disfrutar de la diversidad escondida en la jungla.</p>
     </article>
+
+    <script>
+        const element = document.getElementById("home-index")
+        element.classList.add("active")
+    </script>
 
 
 @endsection

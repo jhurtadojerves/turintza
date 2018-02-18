@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '192987931450656',
+        'client_secret' => '89ab9692f42708fb71f6c1ec39eeb622',
+        'redirect' => 'http://turintza.app/auth/facebook/callback'
+    ],
+
 ];

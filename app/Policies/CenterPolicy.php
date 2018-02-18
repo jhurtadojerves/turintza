@@ -12,6 +12,4 @@ class CenterPolicy
     {
         return $user->type === 'admin';
     }
-
-
 }

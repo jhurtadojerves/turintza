@@ -5,7 +5,7 @@
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item" aria-current="page"><a href="{{ route('home.index') }}">Inicio</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="/">Inicio</a></li>
     <li class="breadcrumb-item active" aria-current="page">Cultura</li>
 @endsection
 
@@ -28,6 +28,10 @@
                     $("#map").css("max-width", "100%");
                     $("#map").css("width", "100%");
                 });
+
+                const element = document.getElementById("home-how")
+                element.classList.add("active")
+
             </script>
         </p>
 

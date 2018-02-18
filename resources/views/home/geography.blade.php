@@ -5,7 +5,7 @@
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item" aria-current="page"><a href="{{ route('home.index') }}">Inicio</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="/">Inicio</a></li>
     <li class="breadcrumb-item active" aria-current="page">Geografía</li>
 @endsection
 
@@ -36,5 +36,10 @@
         </ul>
 
     </article>
+
+    <script>
+        const element = document.getElementById("home-geography")
+        element.classList.add("active")
+    </script>
 
 @endsection

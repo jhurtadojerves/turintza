@@ -40,8 +40,7 @@
 
 
                         @guest
-                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Registrarse</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('social.auth', 'facebook') }}">Autenticación</a></li>
                         @else
                             <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,7 +49,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ Auth::user()->url }}">Detalles</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}">
+                                <a class="dropdown-item" href="{{ route('logout.fix') }}">
                                     Cerrar Sesión
                                 </a>
                             </div>
@@ -82,11 +81,12 @@
 
         <div class="card no-gutters col-lg-3 col-md-12 bg-light">
             <div class="list-group" style="margin-top: 10px; margin-bottom: 10px;">
-                <a href="{{ route('home.index') }}" class="list-group-item list-group-item-info bg-blue-grey">Ecología y Turismo</a>
-                <a href="{{ route('home.geography') }}" class="list-group-item list-group-item-info bg-blue-grey">Geografía</a>
-                <a href="{{ route('home.culture') }}" class="list-group-item list-group-item-info bg-blue-grey">Cultura</a>
-                <a href="{{ route('home.how') }}" class="list-group-item list-group-item-info bg-blue-grey">¿Cómo llegar?</a>
-                <a href="{{ route('centers.index') }}" class="list-group-item list-group-item-info bg-blue-grey">Centros Turísticos</a>
+                <a href="/" id="news-index" class="list-group-item list-group-item-info bg-blue-grey">Noticias</a>
+                <a href="{{ route('home.index') }}" id="home-index" class="list-group-item list-group-item-info bg-blue-grey">Ecología y Turismo</a>
+                <a href="{{ route('home.geography') }}" id="home-geography" class="list-group-item list-group-item-info bg-blue-grey">Geografía</a>
+                <a href="{{ route('home.culture') }}" id="home-culture" class="list-group-item list-group-item-info bg-blue-grey">Cultura</a>
+                <a href="{{ route('home.how') }}" id="home-how" class="list-group-item list-group-item-info bg-blue-grey">¿Cómo llegar?</a>
+                <a href="{{ route('centers.index') }}" id="centers-index" class="list-group-item list-group-item-info bg-blue-grey">Centros Turísticos</a>
             </div>
         </div>
         <div class="w-100 d-lg-none" style="margin-bottom: 20px;"></div>
